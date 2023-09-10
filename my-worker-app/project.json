@@ -1,0 +1,25 @@
+{
+  "name": "my-worker-app",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "my-worker-app/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@naxodev/nx-cloudflare:serve",
+      "options": {
+        "port": 8787
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["my-worker-app/**/*.ts"]
+      }
+    },
+    "publish": {
+      "executor": "@naxodev/nx-cloudflare:publish"
+    }
+  },
+  "tags": []
+}
