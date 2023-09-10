@@ -25,6 +25,7 @@ export default defineConfig(({ mode }) => ({
               include: ['/*'],
               exclude: ['/index.html'],
             },
+            defaultRoutes: false,
           },
         },
       },
