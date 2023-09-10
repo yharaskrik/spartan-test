@@ -18,7 +18,6 @@ export default async function render(url: string, document: string, ...args: any
   console.log('args', args);
   const html = await renderApplication(bootstrap, {
     document,
-    url: `https://jaybell-brandons-config.spartan-test.pages.dev${url}`,
   });
   return html;
 }
