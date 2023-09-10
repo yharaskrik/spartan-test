@@ -11,12 +11,11 @@ export default defineConfig(({ mode }) => {
     build: {
       target: ['es2020'],
     },
+    ssr: {
+      noExternal: ['xhr2']
+    },
     plugins: [
-      analog({
-        nitro: {
-          preset: 'cloudflare-pages'
-        }
-      }),
+      analog(),
       tsConfigPaths({
         root: '../',
       }),
@@ -33,6 +32,8 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.vitest': mode !== 'production',
-    },
+      'process.versions.node': `'node'`,
+      'process.versions.v8': `'v8'`
+    }
   };
 });
