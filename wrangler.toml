@@ -1,0 +1,7 @@
+name = "example"
+main = "./dist/client/analog/server/index.mjs"
+workers_dev = true
+compatibility_date = "2021-09-20"
+
+[site]
+bucket = "dist/client/analog/public"
