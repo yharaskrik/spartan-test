@@ -14,12 +14,15 @@ export default defineConfig(({ mode }) => {
     build: {
       target: ['es2020'],
     },
+    resolve: {
+      mainFields: ['module'],
+    },
     plugins: [
       analog(),
       tsConfigPaths({
         root: '../',
       }),
-      splitVendorChunkPlugin(),
+      // splitVendorChunkPlugin(),
       {
         name: 'global',
         transform(code, id) {
