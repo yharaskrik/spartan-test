@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => ({
           pages: {
             routes: {
               version: 1,
-              include: ['/*'],
+              include: ['/**/*'],
               exclude: ['/index.html'],
             },
             defaultRoutes: false,
