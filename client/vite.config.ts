@@ -2,6 +2,7 @@
 
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import { resolve } from 'node:path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -18,16 +19,10 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     analog({
       nitro: {
-        cloudflare: {
-          pages: {
-            routes: {
-              version: 1,
-              include: ['/**/*'],
-              exclude: ['/index.html'],
-            },
-            defaultRoutes: false,
-          },
-        },
+        output: Object.assign({
+          dir: resolve(process.cwd(), 'dist/client/analog'),
+          publicDir: resolve(process.cwd(), 'dist/client/analog'),
+        }),
       },
     }),
     {

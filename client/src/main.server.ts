@@ -5,7 +5,6 @@ import { bootstrapApplication } from '@angular/platform-browser';
 
 import { AppComponent } from './app/app.component';
 import { config } from './app/app.config.server';
-import { parse } from 'url';
 
 if (import.meta.env.PROD) {
   enableProdMode();
@@ -13,18 +12,7 @@ if (import.meta.env.PROD) {
 
 const bootstrap = () => bootstrapApplication(AppComponent, config);
 
-export default async function render(
-  url: string,
-  document: string,
-  ...args: any[]
-) {
-  console.log(
-    'url',
-    url,
-    parse(`https://jaybell-brandons-config.spartan-test.pages.dev${url}`)
-  );
-  console.log('document', document);
-  console.log('args', args);
+export default async function render(url: string, document: string) {
   const html = await renderApplication(bootstrap, {
     document,
     url: `https://jaybell-brandons-config.spartan-test.pages.dev${url}`,
