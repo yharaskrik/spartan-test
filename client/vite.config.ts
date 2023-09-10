@@ -8,11 +8,11 @@ import tsConfigPaths from 'vite-tsconfig-paths';
 export default defineConfig(({ mode }) => {
   return {
     publicDir: 'src/public',
-    build: {
-      target: ['es2020'],
-    },
     ssr: {
       noExternal: ['xhr2']
+    },
+    build: {
+      target: ['es2020'],
     },
     plugins: [
       analog(),
