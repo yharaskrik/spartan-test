@@ -20,6 +20,20 @@ export default defineConfig(({ mode }) => {
         root: '../',
       }),
       splitVendorChunkPlugin(),
+      {
+        name: 'global',
+        transform(code, id) {
+          if (code.includes('global') && id.includes('platform-server.mjs')) {
+            return {
+              code: code
+                .replaceAll('global.', 'globalThis.')
+                .replaceAll('global,', 'globalThis,')
+                .replaceAll(' global[', ' globalThis[')
+            };
+          }
+          return;
+        }
+      }
     ],
     test: {
       globals: true,
