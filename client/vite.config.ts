@@ -16,7 +16,19 @@ export default defineConfig(({ mode }) => ({
     mainFields: ['module'],
   },
   plugins: [
-    analog(),
+    analog({
+      nitro: {
+        cloudflare: {
+          pages: {
+            routes: {
+              version: 1,
+              include: ['/*'],
+              exclude: ['/index.html'],
+            },
+          },
+        },
+      },
+    }),
     {
       name: 'test',
       transform(code, id) {
