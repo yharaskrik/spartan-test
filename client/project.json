@@ -24,7 +24,7 @@
         },
         "production": {
           "sourcemap": false,
-          "mode": "development"
+          "mode": "production"
         }
       }
     },
