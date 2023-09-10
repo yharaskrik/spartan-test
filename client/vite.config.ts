@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     target: ['es2020'],
   },
   ssr: {
-    noExternal: ['xhr2']
+    noExternal: ['xhr2'],
   },
   resolve: {
     mainFields: ['module'],
@@ -22,11 +22,11 @@ export default defineConfig(({ mode }) => ({
       transform(code, id) {
         if (code.includes('os.type()')) {
           return {
-            code: code.replace('os.type()', `''`).replace('os.arch()', `''`)
-          }
+            code: code.replace('os.type()', `''`).replace('os.arch()', `''`),
+          };
         }
         return;
-      }
+      },
     },
     {
       name: 'global',
@@ -36,12 +36,13 @@ export default defineConfig(({ mode }) => ({
             code: code
               .replaceAll('global.', 'globalThis.')
               .replaceAll('global,', 'globalThis,')
-              .replaceAll(' global[', ' globalThis[')
+              .replaceAll(' global[', ' globalThis['),
           };
         }
         return;
-      }
-    }],
+      },
+    },
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
@@ -51,6 +52,6 @@ export default defineConfig(({ mode }) => ({
   define: {
     'import.meta.vitest': mode !== 'production',
     'process.versions.node': `'node'`,
-    'process.versions.v8': `'v8'`
+    'process.versions.v8': `'v8'`,
   },
 }));
