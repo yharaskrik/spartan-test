@@ -15,7 +15,7 @@ const bootstrap = () => bootstrapApplication(AppComponent, config);
 export default async function render(url: string, document: string) {
   const html = await renderApplication(bootstrap, {
     document,
-    url: `${import.meta.env['VITE_APP_BASE_URL']}${url}`,
+    url,
   });
   return html;
 }
