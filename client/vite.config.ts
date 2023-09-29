@@ -25,7 +25,6 @@ export default defineConfig(({ mode }) => {
             dir: resolve(process.cwd(), 'dist/client/analog'),
             publicDir: resolve(process.cwd(), 'dist/client/analog'),
           }),
-          preset: 'cloudflare-module',
         },
       }),
       tsConfigPaths({
