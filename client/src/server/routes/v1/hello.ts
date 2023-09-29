@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   const memory = new BufferMemory({
     chatHistory: new CloudflareD1MessageHistory({
       tableName: 'stored_message',
-      sessionId: 'sessionId',
+      sessionId: 'session',
       database: globalThis.__env__.DB,
     }),
   });
