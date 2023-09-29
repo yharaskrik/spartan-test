@@ -1,5 +1,5 @@
 import { defineEventHandler } from 'h3';
 
-export default defineEventHandler(({ context: { cloudflare } }) => ({
-  d1: cloudflare.env.DB,
+export default defineEventHandler(({ context }) => ({
+  d1: context,
 }));
