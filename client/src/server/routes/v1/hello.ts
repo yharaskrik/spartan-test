@@ -1,3 +1,5 @@
 import { defineEventHandler } from 'h3';
 
-export default defineEventHandler(() => ({ message: 'Hello World' }));
+export default defineEventHandler(({ context: { cloudflare } }) => ({
+  d1: cloudflare.env.D1,
+}));

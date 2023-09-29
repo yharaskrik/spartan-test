@@ -1,1 +1,4 @@
-
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "openai_conversations"
+database_id = "27db6719-0e53-46c0-a621-682a2e73d1da"
