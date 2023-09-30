@@ -4,7 +4,7 @@ import analog from '@analogjs/platform';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsConfigPaths from 'vite-tsconfig-paths';
-import replace from '@rollup/plugin-replace';
+import { nodeCompat, nodePackages } from './node-compat';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -27,7 +27,10 @@ export default defineConfig(({ mode }) => {
             publicDir: resolve(process.cwd(), 'dist/client/analog'),
           }),
           unenv: {
-            external: ['crypto'],
+            external: nodePackages,
+          },
+          rollupConfig: {
+            plugins: [...nodeCompat()],
           },
         },
       }),

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "BUILD_PRESET=cloudflare-pages nx build client --skip-nx-cache && npx -y vite-node replace-crypto.js"
+    "build": "BUILD_PRESET=cloudflare-pages nx build client --skip-nx-cache"
   },
   "private": true,
   "dependencies": {
