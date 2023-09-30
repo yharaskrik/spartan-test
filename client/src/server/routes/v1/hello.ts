@@ -5,9 +5,8 @@ import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { ConversationChain } from 'langchain/chains';
 
 export default defineEventHandler(async (event) => {
-  const input = new URL(event.path).searchParams.get('input');
-
-  console.log(input);
+  console.log(event);
+  console.log(event.context);
 
   const memory = new BufferMemory({
     chatHistory: new CloudflareD1MessageHistory({
@@ -21,7 +20,7 @@ export default defineEventHandler(async (event) => {
     openAIApiKey: globalThis.__env__.OPENAI_API_KEY,
   });
   const chain = new ConversationChain({ llm: model, memory });
-  const res = await chain.call({ input });
+  const res = await chain.call({ input: 'Tell me about the world' });
 
   return {
     response: res.response,
