@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "BUILD_PRESET=cloudflare-pages nx build client --skip-nx-cache"
+    "build": "BUILD_PRESET=cloudflare-pages nx build client --skip-nx-cache && npx -y vite-node replace-crypto.js"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +49,7 @@
     "@nx/node": "16.9.0",
     "@nx/vite": "16.9.0",
     "@nx/workspace": "16.9.0",
+    "@rollup/plugin-replace": "^5.0.2",
     "@schematics/angular": "~16.2.0",
     "@types/node": "~18.7.1",
     "@typescript-eslint/eslint-plugin": "^5.60.1",

@@ -4,6 +4,7 @@ import analog from '@analogjs/platform';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsConfigPaths from 'vite-tsconfig-paths';
+import replace from '@rollup/plugin-replace';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
