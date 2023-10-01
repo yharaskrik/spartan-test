@@ -13,9 +13,6 @@ export default defineConfig(({ mode }) => {
     build: {
       target: ['es2020'],
     },
-    ssr: {
-      noExternal: ['xhr2'],
-    },
     resolve: {
       mainFields: ['module'],
     },
@@ -49,8 +46,6 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.vitest': mode !== 'production',
-      'process.versions.node': `'node'`,
-      'process.versions.v8': `'v8'`,
     },
   };
 });
